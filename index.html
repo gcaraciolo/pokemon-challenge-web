@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="pokemon-challenge" lang="en">
+	<head>
+		<base href="/">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Pokemon Challenge</title>
+
+		<link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/cover.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+
+					<div class="masthead clearfix">
+						<div class="inner">
+							<h3 class="masthead-brand">
+								<span>Pokemon Challenge</span>
+							</h3>
+							<nav>
+								<ul class="nav masthead-nav">
+									<li ui-sref-active="active"><a ui-sref="pokemon-challenge">Home</a></li>
+									<li ui-sref-active="active"><a ui-sref="pokemon-market">Market</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+
+					<div ui-view=""></div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<script type="text/javascript" src="src/app.js"></script>
+
+	<script type="text/javascript" src="src/pokemon/pokemonModule.js"></script>
+	<script type="text/javascript" src="src/pokemon/pokemonController.js"></script>
+	<script type="text/javascript" src="src/pokemon/pokemonService.js"></script>
+</html>
