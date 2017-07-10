@@ -5,7 +5,7 @@ var constants = require('./constants')
 
 gulp
 	.task('config', () => {
-		fs.writeFileSync('./config.json', JSON.stringify(constants))
+		fs.writeFileSync('./config.json', JSON.stringify(constants, null, 3))
 		gulp
 			.src('./config.json')
 			.pipe(gulpNgConfig('pokemon-challenge', {
