@@ -1,7 +1,8 @@
 var dependencies = [
 	'$scope',
 	'pokemons',
-	'PokemonService'
+	'PokemonService',
+	'SweetAlert'
 ];
 
 var pokemonModule = angular.module('pokemon-challenge.pokemon');
@@ -10,7 +11,7 @@ pokemonModule.controller('PokemonMarketController', PokemonMarketController);
 
 PokemonMarketController.$inject = dependencies;
 
-function PokemonMarketController($scope, pokemons, PokemonService) {
+function PokemonMarketController($scope, pokemons, PokemonService, SweetAlert) {
 	$scope.pokemons = pokemons;
 	$scope.errors = [];
 	$scope.alerts = [];
@@ -25,10 +26,7 @@ function PokemonMarketController($scope, pokemons, PokemonService) {
 				$scope.pokemons = pokemons;
 			})
 			.catch(function(error) {
-				$scope.errors.push({
-					type: 'danger',
-					msg: 'Something does wrong'
-				})
+				SweetAlert.error('Something goes wrong.');
 			})
 			.finally(function() {
 				$scope.loading = false;
@@ -40,14 +38,11 @@ function PokemonMarketController($scope, pokemons, PokemonService) {
 		PokemonService
 			.create(data)
 			.then(function(pokemon) {
-				$scope.alerts.push({
-					type: 'success',
-					msg: 'Pokemon advertised with success'
-				})
+				SweetAlert.success("Pokemon announced with success!");
 				$scope.pokemons.push(pokemon)
 			})
-			.catch(function(response) {
-				$scope.errors = response.data.errors
+			.catch(function() {
+				SweetAlert.error('Something goes wrong.');
 			})
 			.finally(function() {
 				$scope.loading = false;
@@ -59,20 +54,12 @@ function PokemonMarketController($scope, pokemons, PokemonService) {
 		PokemonService
 			.buyPokemon(data)
 			.then(function(transaction) {
-				$scope.alerts.push({
-					type: 'success',
-					msg: 'Pokemon bought with success!'
-				})
+				SweetAlert.success('Pokemon bought with success!');
 				reloadPokemonList()
 			})
 			.catch(function(response) {
-				if(response.data.errors) {
-					$scope.errors = response.data.errors	
-				} else if(response.data.error){
-					$scope.errors.push(response.data.error)
-				} else {
-					$scope.errors.push('something goes worng')
-				}
+				var msg = response.data.error || 'Something goes wrong.';
+				SweetAlert.error(msg);
 			})
 			.finally(function() {
 				$scope.loading = false;

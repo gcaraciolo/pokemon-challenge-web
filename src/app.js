@@ -1,6 +1,7 @@
 var dependencies = [
 	'ui.router',
 	'angularSpinner',
+	'ng-sweet-alert',
 	'pokemon-challenge.pokemon',
 ];
 
