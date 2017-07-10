@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "angular": "1.6.5",
-    "angular-ui-router": "^.0.3",
-    "bootstrap": "3.3.7"
+    "angular-spinner": "1.0.1",
+    "angular-ui-router": ".0.3",
+    "bootstrap": "3.3.7",
+    "dotenv": "4.0.0",
+    "gulp": "3.9.1",
+    "gulp-ng-config": "1.4.0"
   }
 }
