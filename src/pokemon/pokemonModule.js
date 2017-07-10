@@ -8,8 +8,12 @@ function appconfig($stateProvider) {
 		templateUrl: 'src/pokemon/pokemon-market.html',
 		controller: 'PokemonMarketController',
 		resolve: {
-			pokemons: function(PokemonService) {
-				return PokemonService.list()
+			pokemons: function(PokemonService, SweetAlert) {
+				return PokemonService
+					.list()
+					.catch(function(error) {
+						SweetAlert.error('server off')
+					})
 			}
 		}
 	});
