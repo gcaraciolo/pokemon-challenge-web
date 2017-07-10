@@ -1,5 +1,6 @@
 var dependencies = [
-	'$http'
+	'$http',
+	'apiBaseUrl'
 ];
 
 var pokemonModule = angular.module('pokemon-challenge.pokemon');
