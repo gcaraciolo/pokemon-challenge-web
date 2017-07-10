@@ -46,6 +46,7 @@ function PokemonMarketController($scope, pokemons, PokemonService, SweetAlert) {
 			})
 			.finally(function() {
 				$scope.loading = false;
+				$scope.create = {};
 			})
 	}
 
@@ -63,6 +64,7 @@ function PokemonMarketController($scope, pokemons, PokemonService, SweetAlert) {
 			})
 			.finally(function() {
 				$scope.loading = false;
+				$scope.buy = {};
 			})
 	}
 
