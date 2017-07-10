@@ -11,6 +11,11 @@ $ vim .env
 $ npm run gulp
 ```
 
+## Server setup
+Configure apache or nginx server
+add host
+add path to project folder
+
 ## Environment variables
 | Key | Description | Example |
 | ------------- | ------------- | ------------- |
