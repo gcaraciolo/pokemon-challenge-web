@@ -13,17 +13,17 @@ function PokemonService($http, apiBaseUrl) {
 	return {
 		list: function() {
 			return $http
-				.get(apiBaseUrl + '/get-pokemons')
+				.get(apiBaseUrl + '/pokemons')
 				.then(response => response.data);
 		},
 		create: function(body) {
 			return $http
-				.put(apiBaseUrl + '/create-pokemons', body)
+				.post(apiBaseUrl + '/pokemons', body)
 				.then(response => response.data);
 		},
 		buyPokemon: function(body) {
 			return $http
-				.post(apiBaseUrl + '/buy-pokemons', body)
+				.post(apiBaseUrl + '/pokemons/buy', body)
 				.then(response => response.data);
 		}
 	};
